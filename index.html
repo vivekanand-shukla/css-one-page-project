@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost Blog</title>
+    <style>
+        :root {
+            --primary: #15171A;
+            --text: #738A94;
+            --heading: #15171A;
+            --blue: #3EB0EF;
+            --pink: #FB45AE;
+            --yellow: #FDB927;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        body {
+            font-family: "Segoe UI";
+          }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .container2 {
+            max-width: 1550px;
+             display: flex;
+             justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0 80px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .left {
+            display: flex;
+            gap: 30px;
+        }
+
+        .left a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon {
+            color: white;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .hero {
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #738A94;
+            font-size: 16px;
+        }
+
+        main {
+            margin-top: -40px;
+        }
+
+        .featured {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 80px;
+            display: flex;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .img {
+            flex: 1;
+             background-color: #eef2f5;  
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 px;
+        }
+
+        .i {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .line {
+            background-color: var(--primary);
+            height: 8px;
+            border-radius: 4px;
+        }
+
+        
+        .l4 span {
+            width: 25px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 4px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tag {
+            color: #199de9;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .content h2 {
+            font-size: 32px;
+            color: var(--heading);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .content p {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar span {
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-weight: 600;
+            color: var(--heading);
+            font-size: 14px;
+        }
+
+        .meta {
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .box {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+
+
+        .gh {
+            font-size: 72px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .toggle {
+            width: 80px;
+            height: 40px;
+            background-color: white;
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 4px;
+        }
+
+       
+        .key {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .k1 {
+            width: 60px;
+            height: 60px;
+            border: 4px solid white;
+            border-radius: 50%;
+        }
+
+        .k2 {
+            width: 40px;
+            height: 8px;
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        .squares {
+            display: flex;
+            gap: 12px;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .square.dark {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .square.light {
+            background-color: white;
+        }
+
+        .circles {
+            display: flex;
+            align-items: center;
+            gap: -30px;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .c1 {
+            background: repeating-linear-gradient(
+                45deg,
+                #FFF9C4,
+                #FFF9C4 4px,
+                transparent 4px,
+                transparent 8px
+            );
+        }
+
+       
+
+        .txt {
+            padding: 30px;
+        }
+
+        .txt .tag {
+            margin-bottom: 10px;
+        }
+
+        .txt h3 {
+            font-size: 20px;
+            color: var(--heading);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .txt p {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .large {
+            width: 48%;
+        }
+
+
+        .txt {
+            padding: 30px;
+            text-align: left;
+        } 
+
+        .txt .tag {
+            margin-bottom: 10px;
+        }
+
+        .txt h3 {
+            font-size: 20px;
+            color: var(--heading);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .txt p {
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 15px;
+            text-align: left;
+        }
+
+ 
+    </style>
+</head>
+<body>
+    <header>
+      
+            <nav class="container2">
+                <div class="left">
+                    <a href="#">HOME</a>
+                    <a href="#">TAG</a>
+                    <a href="#">AUTHOR</a>
+                    <a href="#">HELP</a>
+                </div>
+                <div class="right">
+                    <span class="icon">f</span>
+                    <span class="icon">🐦</span>
+                    <span class="icon">🌙</span>
+                    <button class="btn">Subscribe</button>
+                </div>
+            </nav>
+                  <div class="container">
+            <div class="hero">
+                <div  style="margin: 50px 0px;">
+
+                    <div class="logo"> ≡   ghost</div>  
+                    <div class="tagline">Thoughts, stories, and ideas.</div>
+                    
+                </div>
+
+
+        
+
+                <main class="container">
+       
+        <article class="featured">
+            <div class="img">
+                <img src="\CSS_ASSIGNMENT1\img\ghostImage1_xt6wb5.webp" alt="" style="width: 600px; height: 500px;">  
+            </div>
+            <div class="content">
+                <div class="tag"  style="position: relative; bottom: 80px; right: 180px;">GETTING STARTED</div>
+                <h2 style="position: relative; bottom: 90px; right: 110px;">Welcome to Ghost</h2>
+                <p style="position: relative; bottom: 90px; right: 20px; width: 280px;">Welcome, it's great to have you here. We know that first impressions are important, so we've populated your new site with some initial getting started posts that will help you get familiar with everything in no time.</p>
+                <div class="author">
+                    <div class="">
+                        <img style="width: 40px;  height: 40px;" src="\CSS_ASSIGNMENT1\img\smallLogo_fmjzvk.png" alt="">
+                    </div>
+                    <div class="details">
+                        <div class="name" style="position: relative; right: 55px; ">GHOST</div>
+                        <div class="meta">26 FEB 2020 · 1 MIN READ</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+ 
+        <div class="grid">
+            <article class="card">
+                <div class="box yellow">
+                    <div class="gh"><img src="\CSS_ASSIGNMENT1\img\ghostImage2_ken5hq.avif" height="300px" width="360px" alt=""></div>
+                </div>
+                <div class="txt">
+                    <div class="tag">GETTING STARTED</div>
+                    <h3>Writing posts with Ghost ✍️</h3>
+                    <p>Discover familiar formatting options in a functional toolbar and the ability to add dynamic content seamlessly.</p>
+                    <div class="author">
+                        <div class="">
+                            <img style="width: 40px;  height: 40px;" src="\CSS_ASSIGNMENT1\img\smallLogo_fmjzvk.png" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="name"  style="position: relative; right: 0px; "  >GHOST</div>
+                            <div class="meta">26 FEB 2020 · 3 MIN READ</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="box pink">
+                    <div class="toggle"><img src="\CSS_ASSIGNMENT1\img\ghostImage3_smh9dh.avif" height="300px" width="360px"   style="position: relative ; left: -140px; top: -10px;" alt=""></div>
+                </div>
+                <div class="txt">
+                    <div class="tag">GETTING STARTED</div>
+                    <h3>Publishing options</h3>
+                    <p>The Ghost editor post settings menu has everything you need to fully optimize and distribute your content effectively.</p>
+                    <div class="author">
+                        <div class="">
+                            <img style="width: 40px;  height: 40px;" src="\CSS_ASSIGNMENT1\img\smallLogo_fmjzvk.png" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="name"  style="position: relative; right: 0px; "  >GHOST</div>
+                            <div class="meta">26 FEB 2020 · 2 MIN READ</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="box blue">
+                    <div class="key">
+                    <img src="\CSS_ASSIGNMENT1\img\ghostImage4_fqf7yz.avif" height="300px" width="360px"   style="position: relative ; left: -0px; top: -10px;" alt="">
+                    </div>
+                </div>
+                <div class="txt">
+                    <div class="tag">GETTING STARTED</div>
+                    <h3>Managing admin settings</h3>
+                    <p>There are a couple of things to do next while you're getting set up: making your site private and inviting your team.</p>
+                    <div class="author">
+                        <div class="">
+                            <img style="width: 40px;  height: 40px;" src="\CSS_ASSIGNMENT1\img\smallLogo_fmjzvk.png" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="name"  style="position: relative; right: 0px; ">GHOST</div>
+                            <div class="meta">26 FEB 2020 · 2 MIN READ</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+      
+        <div class="grid">
+            <article class="card large">
+                <div class="box blue">
+                    <div class="squares">
+                     <img  height="300px"  width="559px"   style="position: relative ; left: -0px; top: -10px;"  src="\CSS_ASSIGNMENT1\img\ghostImage5_mgxrty.avif" alt="">
+                    </div>
+                </div>
+                <div class="txt">
+                    <div class="tag">GETTING STARTED</div>
+                    <h3>Writing posts with Ghost ✍️</h3>
+                    <p>Discover familiar formatting options in a functional toolbar and the ability to add dynamic content seamlessly.</p>
+                    <div class="author">
+                        <div class="">
+                           <img style="width: 40px;  height: 40px;" src="\CSS_ASSIGNMENT1\img\smallLogo_fmjzvk.png" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="name" style="position: relative; right: 0px; " >GHOST</div>
+                            <div class="meta">26 FEB 2020 · 3 MIN READ</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card large">
+                <div class="box yellow">
+                    <div class="circles">
+                            <img  height="300px"  width="559px"   style="position: relative ; left: -0px; top: -10px;"  src="\CSS_ASSIGNMENT1\img\ghostImage6_ezgbwj.avif" alt="">
+                    </div>
+                </div>
+                <div class="txt">
+                    <div class="tag">GETTING STARTED</div>
+                    <h3>Publishing options</h3>
+                    <p>The Ghost editor post settings menu has everything you need to fully optimize and distribute your content effectively.</p>
+                    <div class="author">
+                        <div class="">
+                           <img style="width: 40px;  height: 40px;" src="\CSS_ASSIGNMENT1\img\smallLogo_fmjzvk.png" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="name" style="position: relative; right: 0px; ">GHOST</div>
+                            <div class="meta">26 FEB 2020 · 2 MIN READ</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+             
+            
+            </div>
+        </div>
+    </header>
+
+    
+</body>
+</html>
